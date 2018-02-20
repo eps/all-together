@@ -14,8 +14,8 @@ class LeftPanel extends React.Component {
     return (
       <div className={styles.leftPanel}>
         {_.map(websites, (title, i) => (
-          <ul key={i}>
-            <li>
+          <ul className={styles.website} key={i}>
+            <li className={styles.item}>
               {title}
             </li>
           </ul>

@@ -1,6 +1,21 @@
-.leftPanel {
+@import "../../mixins/variables";
+
+.left-panel {
   position: fixed;
   width: 25%;
-  background-color: #eee;
+  background-color: $darkerGrey;
   height: 100%;
+  padding-left: 5%;
+  min-width: 200px;
+  .website {
+    list-style: none;
+    text-align: left;
+    margin-left: 20px;
+    .item {
+      line-height: 30px;
+      width: 100%;
+      cursor: pointer;
+      font-family: $ralewayFont;
+    }
+  }
 }
