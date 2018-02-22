@@ -13,6 +13,7 @@ class LeftPanel extends React.Component {
 
     return (
       <div className={styles.leftPanel}>
+      <h1>all together</h1>
         {_.map(websites, (title, i) => (
           <ul className={styles.website} key={i}>
             <li className={styles.item}>
@@ -29,5 +30,5 @@ class LeftPanel extends React.Component {
 LeftPanel.propTypes = {
   title: PropTypes.array.isRequired
 };
-
+//
 export default LeftPanel;
