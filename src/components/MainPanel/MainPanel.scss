@@ -2,34 +2,45 @@
 
 .main-panel {
   width: 75vw;
+  display: flex;
   .item-list {
     text-align: left;
-    padding: 10px 20px;
   }
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
     .items {
+      display: flex;
       padding: 10px;
-      .title {
-        font-size: 16px;
-        width: 90%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      .image {
+        margin-right: 10px;
         display: block;
       }
-      .info {
-        color: #999;
-        font-size: 12px;
-        margin: 5px 0 0;
-        width: 100%;
+      .title {
+        font-size: 16px;
+        a {
+          color: $contentTitle;
+          text-decoration: none;
+        }
       }
-      a {
-        color: black;
-        text-decoration: none;
-      }
-      &:hover {
-        background-color: $darkerGrey
-      }
+    }
+  }
+}
+.content {
+  display: flex;
+  flex-direction: column;
+  .info {
+    font-size: 12px;
+    a {
+      text-decoration: none;
+      color: $subContent;
+    }
+    .comment {
+      font-weight: bold;
     }
   }
 }
