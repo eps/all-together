@@ -2,45 +2,4 @@
 
 .main-panel {
   width: 75vw;
-  display: flex;
-  .item-list {
-    text-align: left;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    .items {
-      display: flex;
-      padding: 10px;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-items: center;
-      .image {
-        margin-right: 10px;
-        display: block;
-      }
-      .title {
-        font-size: 16px;
-        a {
-          color: $contentTitle;
-          text-decoration: none;
-        }
-      }
-    }
-  }
-}
-.content {
-  display: flex;
-  flex-direction: column;
-  .info {
-    font-size: 12px;
-    a {
-      text-decoration: none;
-      color: $subContent;
-    }
-    .comment {
-      font-weight: bold;
-    }
-  }
 }
