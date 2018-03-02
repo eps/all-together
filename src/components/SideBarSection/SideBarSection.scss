@@ -1,0 +1,27 @@
+@import "../../mixins/variables";
+
+.left-panel {
+  width: 20vw;
+  background-color: $darkerGrey;
+  padding: 3vw;
+  min-width: 200px;
+  height: 100vh;
+  .website {
+    list-style: none;
+    text-align: left;;
+    .item {
+      line-height: 30px;
+      width: 100%;
+      cursor: pointer;
+      font-family: $ralewayFont;
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .left-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
