@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import App from './containers/App/App';
 import RedditPanel from './components/RedditPanel/RedditPanel';
-import ProductHuntPanel from './components/ProductHuntPanel/ProductHuntPanel';
+import ProductHuntSection from './components/ProductHuntSection/ProductHuntSection';
 import './index.scss';
 
 const router = (
@@ -11,7 +11,7 @@ const router = (
     <Switch>
       <Route exact path="/" component={App} />
       <Route path="/reddit" component={RedditPanel} />
-      <Route path="/product-hunt" component={ProductHuntPanel} />
+      <Route path="/product-hunt" component={ProductHuntSection} />
     </Switch>
   </Router>
 )
