@@ -1,0 +1,10 @@
+.icon-container {
+  display: flex;
+  margin-top: 5px;
+  .items {
+    margin-right: 5px;
+    .image {
+      border-radius: 50%;
+    }
+  }
+}
