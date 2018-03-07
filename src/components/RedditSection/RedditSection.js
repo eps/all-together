@@ -1,10 +1,10 @@
 import axios from 'axios';
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './RedditPanel.scss';
+import styles from './RedditSection.scss';
 import SideBarSection from '../SideBarSection/SideBarSection';
 
-class RedditPanel extends React.Component {
+class RedditSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -82,4 +82,4 @@ Reddit.propTypes = {
   reddit: PropTypes.array.isRequired
 }
 
-export default RedditPanel;
+export default RedditSection;
