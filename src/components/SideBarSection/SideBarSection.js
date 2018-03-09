@@ -1,30 +1,38 @@
+import * as _ from 'lodash';
 import styles from './SideBarSection.scss';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const SideBarSection = () => {
-  return (
-    <div className={styles.leftPanel}>
-    <Link to="/"  style={{ textDecoration: 'none' }}><h1>all together</h1></Link>
-      <ul className={styles.website}>
-        <li className={styles.item}>
-          <Link to="/reddit"  style={{ textDecoration: 'none' }}>Reddit</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/product-hunt"  style={{ textDecoration: 'none' }}>Product Hunt</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/product-hunt"  style={{ textDecoration: 'none' }}>Product Hunt</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/product-hunt"  style={{ textDecoration: 'none' }}>Product Hunt</Link>
-        </li>
-        <li className={styles.item}>
-          <Link to="/product-hunt" style={{ textDecoration: 'none' }}>Product Hunt</Link>
-        </li>
-      </ul>
-    </div>
-  )
+class SideBarSection extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedBrowse: ''
+    };
+  }
+
+  setLink(e) {
+    let selected = e.target.getAttribute('name')
+    console.log(selected);
+    this.setState({
+      selectedBrowse: selected
+    })
+  }
+
+  render() {
+    const links = ['reddit', 'product hunt', 'medium', 'yahoo'];
+    const sidebar = (
+      <ul>
+        {_.map(links, (link, key) => (
+          <li key={key} name={link} onClick={e => this.setLink(e)}>{link}</li>
+        ))}
+       </ul>
+    );
+    return (
+      <div className={styles.leftPanel}>
+        {sidebar}
+      </div>
+    )
+  }
 }
 
 export default SideBarSection;
