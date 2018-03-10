@@ -1,6 +1,8 @@
 import * as _ from 'lodash';
 import styles from './SideBarSection.scss';
 import React from 'react';
+import Main from '../Main/Main';
+import PropTypes from 'prop-types';
 
 class SideBarSection extends React.Component {
   constructor(props) {
@@ -19,7 +21,7 @@ class SideBarSection extends React.Component {
   }
 
   render() {
-    const links = ['reddit', 'product hunt', 'medium', 'yahoo'];
+    const links = this.props.content;
     const sidebar = (
       <ul>
         {_.map(links, (link, key) => (
@@ -27,12 +29,22 @@ class SideBarSection extends React.Component {
         ))}
        </ul>
     );
+
     return (
-      <div className={styles.leftPanel}>
-        {sidebar}
+      <div className={styles.container}>
+        <div className={styles.leftPanel}>
+          {sidebar}
+        </div>
+        <div className={styles.mainPanel}>
+          <Main selectedBrowse={this.state.selectedBrowse} />
+        </div>
       </div>
     )
   }
+}
+
+SideBarSection.propTypes = {
+  content: PropTypes.array.isRequired
 }
 
 export default SideBarSection;

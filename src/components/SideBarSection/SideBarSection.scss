@@ -1,5 +1,9 @@
 @import "../../mixins/variables";
 
+.container {
+  display: flex;
+}
+
 .left-panel {
   width: 20vw;
   background-color: $darkerGrey;
@@ -24,4 +28,8 @@
     flex-direction: column;
     justify-content: center;
   }
+}
+
+.main-panel {
+  width: 75vw;
 }
