@@ -7,18 +7,21 @@ import ProductHuntSection from './components/ProductHuntSection/ProductHuntSecti
 import './index.scss';
 import { addArticle } from "./actions/index";
 import store from "./store.js";
+import { Provider } from "react-redux";
 
 window.store = store;
 window.addArticle = addArticle;
 
 const router = (
-  <Router>
-    <Switch>
-      <Route exact path="/" component={App} />
-      <Route path="/reddit" component={RedditSection} />
-      <Route path="/product-hunt" component={ProductHuntSection} />
-    </Switch>
-  </Router>
+  <Provider store={store}>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={App} />
+        <Route path="/reddit" component={RedditSection} />
+        <Route path="/product-hunt" component={ProductHuntSection} />
+      </Switch>
+    </Router>
+  </Provider>
 )
 
 ReactDOM.render(router,document.getElementById('root'));
