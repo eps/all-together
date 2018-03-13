@@ -2,7 +2,6 @@ import axios from 'axios';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductHuntSection.scss';
-import SideBarSection from '../SideBarSection/SideBarSection';
 import Icons from '../Icons/Icons';
 
 class ProductHuntSection extends React.Component {
@@ -34,9 +33,8 @@ class ProductHuntSection extends React.Component {
   render () {
   return (
     <div className={styles.container}>
-      <SideBarSection />
-        <div className={styles.mainPanel}>
-          <ProductHunt productHunt={this.state.productHunt} />
+      <div className={styles.mainPanel}>
+        <ProductHunt productHunt={this.state.productHunt} />
       </div>
     </div>
     )
