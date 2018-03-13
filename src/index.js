@@ -5,6 +5,11 @@ import App from './containers/App/App';
 import RedditSection from './components/RedditSection/RedditSection';
 import ProductHuntSection from './components/ProductHuntSection/ProductHuntSection';
 import './index.scss';
+import { addArticle } from "./actions/index";
+import store from "./store.js";
+
+window.store = store;
+window.addArticle = addArticle;
 
 const router = (
   <Router>
