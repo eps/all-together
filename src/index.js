@@ -5,13 +5,10 @@ import App from './containers/App/App';
 import RedditSection from './components/RedditSection/RedditSection';
 import ProductHuntSection from './components/ProductHuntSection/ProductHuntSection';
 import './index.scss';
-import { addArticle, selectedBrowse } from "./actions/index";
 import store from "./store.js";
 import { Provider } from "react-redux";
 
 window.store = store;
-window.addArticle = addArticle;
-window.selectedBrowse = selectedBrowse;
 
 const router = (
   <Provider store={store}>

@@ -1,12 +1,19 @@
-export const addArticle = article => ({
-  type: "ADD_ARTICLE",
-  payload: article
-});
-
 // action is an object with information about what happened and what needs to change
+/*
+ * action types
+ */
+export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'
+/*
+ * other constants
+ */
+export const VisibilityFilters = {
+  SHOW_ALL: 'SHOW_ALL',
+  SHOW_ACTIVE: 'SHOW_ACTIVE'
+}
 
-// increment
-export const selectedBrowse = filter => ({
-    type: 'TOGGLE_LINKS',
-    filter
-});
+/*
+ * action creators
+ */
+export function setVisibilityFilter(filter) {
+  return { type: SET_VISIBILITY_FILTER, filter }
+}

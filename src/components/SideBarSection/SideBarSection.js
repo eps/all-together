@@ -11,20 +11,25 @@ const mapStateToProps = state => {
 };
 
 const ConnectedList = ({ websites }) => (
-  console.log(websites),
   <ul className={styles.leftPanel}>
     {_.map(websites, (el, key) => (
-      <li className={styles.website} key={key} name={el}>
-        <div className={styles.item}>{el}</div>
+      <li className={styles.website} key={key} onClick={e => toggleLink(e)}>
+        <div className={styles.item} name={el}>{el}</div>
       </li>
     ))}
   </ul>
 );
 
+const toggleLink = (e) => {
+  let selected = e.target.getAttribute('name')
+  console.log('clickity', selected)
+}
+
+
 const SideBarSection = connect(mapStateToProps)(ConnectedList);
 
 ConnectedList.propTypes = {
-  website: PropTypes.array.isRequired
+  websites: PropTypes.array.isRequired
 }
 
 export default SideBarSection;
