@@ -1,50 +1,30 @@
-import * as _ from 'lodash';
-import styles from './SideBarSection.scss';
 import React from 'react';
-import Main from '../Main/Main';
 import PropTypes from 'prop-types';
+import styles from './SideBarSection.scss';
+import * as _ from 'lodash';
+import { connect } from "react-redux";
 
-class SideBarSection extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      selectedBrowse: ''
-    };
-  }
+const mapStateToProps = state => {
+  return {
+    websites: state.websites
+  };
+};
 
-  setLink(e) {
-    let selected = e.target.getAttribute('name')
-    console.log(selected);
-    this.setState({
-      selectedBrowse: selected
-    })
-  }
+const ConnectedList = ({ websites }) => (
+  console.log(websites),
+  <ul className={styles.leftPanel}>
+    {_.map(websites, (el, key) => (
+      <li className="list-group-item" key={key} name={el}>
+        {el}
+      </li>
+    ))}
+  </ul>
+);
 
-  render() {
-    const links = this.props.content;
-    const sidebar = (
-      <ul>
-        {_.map(links, (link, key) => (
-          <li key={key} name={link} onClick={e => this.setLink(e)}>{link}</li>
-        ))}
-       </ul>
-    );
+const SideBarSection = connect(mapStateToProps)(ConnectedList);
 
-    return (
-      <div className={styles.container}>
-        <div className={styles.leftPanel}>
-          {sidebar}
-        </div>
-        <div className={styles.mainPanel}>
-          <Main selectedBrowse={this.state.selectedBrowse} />
-        </div>
-      </div>
-    )
-  }
-}
-
-SideBarSection.propTypes = {
-  content: PropTypes.array.isRequired
+ConnectedList.propTypes = {
+  websites: PropTypes.array.isRequired
 }
 
 export default SideBarSection;
