@@ -14,8 +14,8 @@ const ConnectedList = ({ websites }) => (
   console.log(websites),
   <ul className={styles.leftPanel}>
     {_.map(websites, (el, key) => (
-      <li className="list-group-item" key={key} name={el}>
-        {el}
+      <li className={styles.website} key={key} name={el}>
+        <div className={styles.item}>{el}</div>
       </li>
     ))}
   </ul>
@@ -24,7 +24,7 @@ const ConnectedList = ({ websites }) => (
 const SideBarSection = connect(mapStateToProps)(ConnectedList);
 
 ConnectedList.propTypes = {
-  websites: PropTypes.array.isRequired
+  website: PropTypes.array.isRequired
 }
 
 export default SideBarSection;

@@ -11,8 +11,7 @@
   min-width: 200px;
   height: 100vh;
   .website {
-    list-style: none;
-    text-align: left;;
+    text-align: left;
     .item {
       line-height: 30px;
       width: 100%;
@@ -28,8 +27,4 @@
     flex-direction: column;
     justify-content: center;
   }
-}
-
-.main-panel {
-  width: 75vw;
 }
