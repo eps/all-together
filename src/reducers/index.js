@@ -1,8 +1,7 @@
-import { combineReducers } from 'redux';
+const initialState = {
+  websites: ['reddit', 'product hunt']
+};
 
-import websites from './websites';
-import selected from './selected';
-
-const rootReducer = combineReducers({websites, selected})
+const rootReducer = (state = initialState) => state;
 
 export default rootReducer;
