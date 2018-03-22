@@ -356,6 +356,7 @@
 //   ]
 // }
 import axios from 'axios';
+import * as _ from 'lodash'
 
 const REDDIT_ENDPOINT = 'https://www.reddit.com';
 
@@ -365,6 +366,23 @@ export function getPopularReddit(){
     .then(res => {
       const data = res.data.data.children.map(obj => obj.data);
       console.log(data)
+      return _.map(data, (subreddit) => {
+      // abstract away the specifics of the reddit API response and take only the fields we care about
+        return {
+          title: _.get(subreddit, 'title')
+        }
+      // const data = res.data.data.children.map(obj => obj.data);
+      // console.log(data);
+      // return data;
+      // const sortedBySubscribers = _.orderBy(children, 'data.subscribers', 'desc');
+      // return _.map(sortedBySubscribers, (subreddit) => {
+      // // abstract away the specifics of the reddit API response and take only the fields we care about
+      //   return {
+      //     title: _.get(subreddit, 'data.display_name'),
+      //     description: _.get(subreddit, 'data.public_description'),
+      //     url: _.get(subreddit, 'data.url')
+      //   }
     })
+  })
     .catch(error => console.log(error, "ERROR"))
 }
