@@ -369,19 +369,14 @@ export function getPopularReddit(){
       return _.map(data, (subreddit) => {
       // abstract away the specifics of the reddit API response and take only the fields we care about
         return {
-          title: _.get(subreddit, 'title')
+          title: _.get(subreddit, 'title'),
+          url: _.get(subreddit, 'url'),
+          author: _.get(subreddit, 'author'),
+          score: _.get(subreddit, 'score'),
+          thumbnail: _.get(subreddit, 'thumbnail'),
+          permalink: _.get(subreddit, 'permalink'),
+          num_comments: _.get(subreddit, 'num_comments')
         }
-      // const data = res.data.data.children.map(obj => obj.data);
-      // console.log(data);
-      // return data;
-      // const sortedBySubscribers = _.orderBy(children, 'data.subscribers', 'desc');
-      // return _.map(sortedBySubscribers, (subreddit) => {
-      // // abstract away the specifics of the reddit API response and take only the fields we care about
-      //   return {
-      //     title: _.get(subreddit, 'data.display_name'),
-      //     description: _.get(subreddit, 'data.public_description'),
-      //     url: _.get(subreddit, 'data.url')
-      //   }
     })
   })
     .catch(error => console.log(error, "ERROR"))
