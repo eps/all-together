@@ -33,7 +33,7 @@
 
 
 import * as types from './actionTypes.js'
-import * as _ from 'lodash';
+// import * as _ from 'lodash';
 
 const initialState = {
   articlesById: null,
@@ -46,7 +46,7 @@ export default function(state = initialState, action) {
     case types.ARTICLES_FETCHED:
       return {
         ...state,
-        articlesById: action.articlesById
+        articlesById: action.subredditArray
       }
     default:
       return initialState
@@ -54,7 +54,11 @@ export default function(state = initialState, action) {
 }
 
 export function getReddit(state) {
-  const articlesById = state.articles.articlesById;
-  const articlesIdArray = _.keys(articlesById)
-  return [articlesById, articlesIdArray];
+  return state.articles.articlesById;
 }
+
+// export function getReddit(state) {
+//   const articlesById = state.articles.articlesById;
+//   const articlesIdArray = _.keys(articlesById)
+//   return [articlesById, articlesIdArray];
+// }

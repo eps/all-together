@@ -16,14 +16,12 @@ class TopicsScreen extends Component {
   }
 }
 
-// which props do we want to inject, given the global store state?
-
 function mapStateToProps(state) {
-  const [articlesById, articlesIdArray] = articlesSelectors.getReddit(state);
+  const redditData = articlesSelectors.getReddit(state);
+  console.log(redditData)
   return {
-    articlesById,
-    articlesIdArray
-  }
+    redditData
+  };
 }
 
 function mapDispatchToProps(dispatch) {

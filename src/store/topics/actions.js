@@ -15,7 +15,6 @@ export function fetchPopularReddit() {
   return async(dispatch) => {
     try {
       const subredditArray = await redditService.getPopularReddit();
-      // const topicsByUrl = subredditArray
       console.log(subredditArray)
       dispatch({ type: types.ARTICLES_FETCHED, subredditArray });
     } catch (error) {
