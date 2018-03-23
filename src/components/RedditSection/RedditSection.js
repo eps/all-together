@@ -2,7 +2,6 @@ import * as _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './RedditSection.scss';
-// import SideBarSection from '../SideBarSection/SideBarSection';
 
 class RedditSection extends React.Component {
   render () {
@@ -18,8 +17,8 @@ class RedditSection extends React.Component {
               </div>
               <div className={styles.itemList}>
                 <ul>
-                  {_.map(this.props.redditData, (post) =>
-                    <li className={styles.items} key={post.id}>
+                  {_.map(this.props.redditData, (post, key) =>
+                    <li className={styles.items} key={key}>
                       <img className={styles.image} src={ `${post.thumbnail}` } />
                         <div className={styles.content}>
                             <span className={styles.title}>
