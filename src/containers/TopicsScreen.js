@@ -4,21 +4,26 @@ import { connect } from 'react-redux';
 import { fetchPopularReddit } from '../store/topics/actions';
 import * as articlesSelectors from '../store/topics/reducer';
 // import * as _ from 'lodash';
+import RedditSection from '../components/RedditSection/RedditSection';
 
 class TopicsScreen extends Component {
   componentDidMount() {
     this.props.loadReddit();
   }
   render() {
+    
     return (
-      <h2>Where are my topics?</h2>
+      <div>
+        <RedditSection
+          redditData={this.props.redditData}
+       />
+     </div>
     );
   }
 }
 
 function mapStateToProps(state) {
   const redditData = articlesSelectors.getReddit(state);
-  console.log(redditData)
   return {
     redditData
   };

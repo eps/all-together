@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 const mapStateToProps = state => {
   return {
-    websites: state.websites
+    websites: state.reddit.websites
   };
 };
 
