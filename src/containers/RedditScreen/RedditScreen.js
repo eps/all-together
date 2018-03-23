@@ -1,17 +1,15 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-// import './TopicsScreen.css';
-import { fetchPopularReddit } from '../store/topics/actions';
-import * as articlesSelectors from '../store/topics/reducer';
-// import * as _ from 'lodash';
-import RedditSection from '../components/RedditSection/RedditSection';
+import { fetchPopularReddit } from '../../store/topics/actions';
+import * as articlesSelectors from '../../store/topics/reducer';
+import RedditSection from '../../components/RedditSection/RedditSection';
 
-class TopicsScreen extends Component {
+class RedditScreen extends React.Component {
   componentDidMount() {
     this.props.loadReddit();
   }
   render() {
-    
+
     return (
       <div>
         <RedditSection
@@ -37,5 +35,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopicsScreen)
-//
+export default connect(mapStateToProps, mapDispatchToProps)(RedditScreen)
