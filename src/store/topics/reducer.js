@@ -54,7 +54,7 @@ export default function(state = initialState, action) {
 }
 
 export function getReddit(state) {
-  return state.articles.articlesById;
+  return state.reddit.articlesById;
 }
 
 // export function getReddit(state) {
