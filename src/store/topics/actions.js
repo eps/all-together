@@ -1,15 +1,25 @@
-import _ from 'lodash';
+// import _ from 'lodash';
 import * as types from './actionTypes';
-import { getPopularReddit } from '../../services/reddit';
+import redditService from '../../services/reddit';
 
 export function fetchPopularReddit() {
   console.log('fetching')
-  return dispatch => {
-    const reddit = getPopularReddit(); // in real life, this will be a async call
-    const articlesById = _.keyBy(reddit
-        .map(reddit => _.assignIn({ date: reddit.date.trim() }, reddit)),
-        'id');
-
-    dispatch({type: types.ARTICLES_FETCHED, articlesById})
-  }
+  // return async(dispatch) => {
+  //   const reddit = await getPopularReddit(); // in real life, this will be a async call
+  //   // const articlesById = _.keyBy(reddit
+  //   //     .map(reddit => _.assignIn({ date: reddit.date.trim() }, reddit)),
+  //   //     'id');
+  //   dispatch({type: types.ARTICLES_FETCHED, reddit})
+  //   return reddit
+  // }
+  return async(dispatch) => {
+    try {
+      const subredditArray = await redditService.getPopularReddit();
+      // const topicsByUrl = subredditArray
+      console.log(subredditArray)
+      dispatch({ type: types.ARTICLES_FETCHED, subredditArray });
+    } catch (error) {
+      console.error(error);
+    }
+  };
 }
