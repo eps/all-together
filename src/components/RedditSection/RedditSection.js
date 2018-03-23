@@ -1,4 +1,4 @@
-// import axios from 'axios';
+import * as _ from 'lodash';
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './RedditSection.scss';
@@ -18,7 +18,7 @@ class RedditSection extends React.Component {
               </div>
               <div className={styles.itemList}>
                 <ul>
-                  {this.props.redditData.map((post) =>
+                  {_.map(this.props.redditData, (post) =>
                     <li className={styles.items} key={post.id}>
                       <img className={styles.image} src={ `${post.thumbnail}` } />
                         <div className={styles.content}>
