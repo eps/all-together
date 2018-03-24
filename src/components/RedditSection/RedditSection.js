@@ -1,11 +1,16 @@
 import * as _ from 'lodash';
 import React from 'react';
-// import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import * as articlesSelectors from '../../store/topics/reducer';
+import { fetchPopularReddit } from '../../store/topics/actions';
 import styles from './RedditSection.scss';
 
 class RedditSection extends React.Component {
+  componentDidMount() {
+    this.props.loadReddit();
+  }
   render () {
-    console.log(this.props.currentPage)
+    console.log('reddit section', this.props)
     if (!this.props.redditData) {
       return <p>Loading...</p>
     }
@@ -45,4 +50,20 @@ class RedditSection extends React.Component {
   }
 }
 
-export default RedditSection;
+function mapStateToProps(state) {
+  const redditData = articlesSelectors.getReddit(state);
+  return {
+    page : state.reddit.page,
+    redditData
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    loadReddit() {
+      dispatch(fetchPopularReddit())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RedditSection);

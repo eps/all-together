@@ -7,7 +7,7 @@ import { updateCurrentPage } from '../../store/topics/actions';
 // import * as articlesSelectors from '../../store/topics/reducer';
 
 class ConnectedList extends React.Component {
-  
+
   toggleLink = (e) => {
     let selected = e.target.getAttribute('name')
     this.props.loadActive(selected);
@@ -28,7 +28,6 @@ class ConnectedList extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log('sidebar', state.reddit.page)
   return {
     page: state.reddit.page,
     websites: state.reddit.websites
