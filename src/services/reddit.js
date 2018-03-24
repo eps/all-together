@@ -17,7 +17,6 @@ class RedditService {
     }
     const data = await response.json();
     const children = data.data.children.map(obj => obj.data);
-    console.log(children)
     if (!children) {
       throw new Error(`RedditService getDefaultSubreddits failed, children not returned`);
     }

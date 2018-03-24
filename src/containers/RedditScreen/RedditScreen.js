@@ -9,11 +9,12 @@ class RedditScreen extends React.Component {
     this.props.loadReddit();
   }
   render() {
-
+  console.log(this.props)
     return (
       <div>
         <RedditSection
           redditData={this.props.redditData}
+          currentPage={this.props.page}
        />
      </div>
     );
@@ -21,8 +22,10 @@ class RedditScreen extends React.Component {
 }
 
 function mapStateToProps(state) {
+  console.log(state.reddit.page)
   const redditData = articlesSelectors.getReddit(state);
   return {
+    page : state.reddit.page,
     redditData
   };
 }

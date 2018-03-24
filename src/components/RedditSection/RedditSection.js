@@ -5,6 +5,7 @@ import styles from './RedditSection.scss';
 
 class RedditSection extends React.Component {
   render () {
+    console.log(this.props.currentPage)
     if (!this.props.redditData) {
       return <p>Loading...</p>
     }

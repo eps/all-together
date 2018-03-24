@@ -2,7 +2,8 @@ import * as types from './actionTypes.js'
 
 const initialState = {
   articlesById: null,
-  websites: ['reddit', 'product hunt']
+  websites: ['reddit', 'product hunt'],
+  page: 'reddit'
 }
 
 export default function(state = initialState, action) {
@@ -12,8 +13,13 @@ export default function(state = initialState, action) {
         ...state,
         articlesById: action.subredditArray
       }
+    case types.UPDATED_PAGE:
+      return {
+        ...state,
+        page: action.page
+      }
     default:
-      return initialState
+      return state
   }
 }
 

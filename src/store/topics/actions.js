@@ -12,3 +12,13 @@ export function fetchPopularReddit() {
     }
   };
 }
+
+export function updateCurrentPage(page) {
+  return (dispatch) => {
+    const action = {
+      type: types.UPDATED_PAGE,
+      page
+    }
+    dispatch(action)
+  }
+}
