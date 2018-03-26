@@ -1,8 +1,8 @@
-import axios from 'axios';
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import styles from './ProductHuntSection.scss';
 import Icons from '../Icons/Icons';
+import { fetchPopularProductHunt } from '../../store/topics/actions';
 
 class ProductHuntSection extends React.Component {
   constructor(props) {
@@ -12,23 +12,26 @@ class ProductHuntSection extends React.Component {
       makers: []
     }
   }
-
   componentDidMount() {
-    const devToken = '4749186aeaf490a8ef0d03677a081245d300de9797c5affeadaed87cc6afc611';
-
-    axios.get('https://api.producthunt.com/v1/posts', {
-      headers: { 'Authorization': 'Bearer'+` ${devToken}` }
-      })
-      .then(res => {
-        const post = res.data.posts;
-        this.setState({
-          productHunt : post
-        });
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.props.loadProductHunt();
   }
+
+  // componentDidMount() {
+  //   const devToken = '4749186aeaf490a8ef0d03677a081245d300de9797c5affeadaed87cc6afc611';
+  //
+  //   axios.get('https://api.producthunt.com/v1/posts', {
+  //     headers: { 'Authorization': 'Bearer'+` ${devToken}` }
+  //     })
+  //     .then(res => {
+  //       const post = res.data.posts;
+  //       this.setState({
+  //         productHunt : post
+  //       });
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }
 
   render () {
   return (
@@ -77,8 +80,13 @@ const ProductHunt = (props) => {
   )
 }
 
-ProductHunt.propTypes = {
-  productHunt: PropTypes.array.isRequired
+function mapDispatchToProps(dispatch) {
+  return {
+    loadProductHunt() {
+      dispatch(fetchPopularProductHunt())
+    }
+  }
 }
 
-export default ProductHuntSection;
+
+export default connect(null, mapDispatchToProps)(ProductHuntSection);
