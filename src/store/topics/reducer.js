@@ -14,7 +14,10 @@ export default function(state = initialState, action) {
         articlesById: action.subredditArray
       }
       case types.PRODUCT_FETCHED:
-        return console.log('product fetch reducer');
+        return {
+          ...state,
+          productHunt: action.producthuntArray
+        }
     case types.UPDATED_PAGE:
       return {
         ...state,

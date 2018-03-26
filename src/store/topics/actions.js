@@ -28,7 +28,6 @@ export function fetchPopularProductHunt() {
   return async(dispatch) => {
     try {
       const producthuntArray = await productService.getPopularProduct();
-      console.log('fetch popular product', producthuntArray);
       dispatch({ type: types.PRODUCT_FETCHED, producthuntArray });
     } catch (error) {
       console.error(error);

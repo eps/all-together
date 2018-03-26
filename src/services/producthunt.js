@@ -5,7 +5,6 @@ const PRODUCTHUNT_ENDPOINT = 'https://api.producthunt.com';
 class ProductHuntService {
 
   async getPopularProduct() {
-    console.log('running product hunt service')
     const devToken = '4749186aeaf490a8ef0d03677a081245d300de9797c5affeadaed87cc6afc611';
     const url = `${PRODUCTHUNT_ENDPOINT}/v1/posts`;
     const response = await fetch(url, {
