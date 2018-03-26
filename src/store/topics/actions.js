@@ -1,5 +1,6 @@
 import * as types from './actionTypes';
 import redditService from '../../services/reddit';
+import productService from '../../services/producthunt';
 
 export function fetchPopularReddit() {
   return async(dispatch) => {
@@ -20,5 +21,17 @@ export function updateCurrentPage(page) {
       page
     }
     dispatch(action)
+  }
+}
+
+export function fetchPopularProductHunt() {
+  return async(dispatch) => {
+    try {
+      const producthuntArray = await productService.getPopularProduct();
+      console.log('fetch popular product', producthuntArray);
+      dispatch({ type: types.PRODUCT_FETCHED, producthuntArray });
+    } catch (error) {
+      console.error(error);
+    }
   }
 }

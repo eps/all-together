@@ -13,6 +13,8 @@ export default function(state = initialState, action) {
         ...state,
         articlesById: action.subredditArray
       }
+      case types.PRODUCT_FETCHED:
+        return console.log('product fetch reducer');
     case types.UPDATED_PAGE:
       return {
         ...state,
