@@ -29,7 +29,8 @@ class ProductHuntService {
         comments_count: _.get(prodhunt, 'comments_count'),
         makers: _.get(prodhunt, 'makers'),
         thumbnail: _.get(prodhunt, 'thumbnail'),
-        slug: _.get(prodhunt, 'slug')
+        slug: _.get(prodhunt, 'slug'),
+        discussion_url: _.get(prodhunt, 'discussion_url')
       }
     });
   }

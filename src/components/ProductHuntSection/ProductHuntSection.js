@@ -11,8 +11,7 @@ class ProductHuntSection extends React.Component {
   }
 
   render () {
-    console.log('reddit section', this.props)
-    if (!this.props.redditData) {
+    if (!this.props.producthuntData) {
       return <p>Loading...</p>
     }
     return (
@@ -24,8 +23,8 @@ class ProductHuntSection extends React.Component {
             </div>
             <div className={styles.itemList}>
               <ul>
-                {this.props.productHunt.map((post) =>
-                  <li className={styles.items} key={post.id}>
+                {this.props.producthuntData.map((post, key) =>
+                  <li className={styles.items} key={key}>
                     <img className={styles.image} src={ `${post.thumbnail.image_url}` } />
                       <div className={styles.content}>
                           <span className={styles.title}>
