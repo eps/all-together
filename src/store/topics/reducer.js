@@ -31,3 +31,7 @@ export default function(state = initialState, action) {
 export function getReddit(state) {
   return state.reddit.articlesById;
 }
+
+export function getProductHunt(state) {
+  return state.reddit.productHunt;
+}
