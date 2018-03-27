@@ -22,7 +22,7 @@ class ProductHuntSection extends React.Component {
               <h1>ProductHunt</h1>
             </div>
             <div className={styles.itemList}>
-              <ul>
+              <ul className={styles.productHuntList}>
                 {this.props.producthuntData.map((post, key) =>
                   <li className={styles.items} key={key}>
                     <img className={styles.image} src={ `${post.thumbnail.image_url}` } />
