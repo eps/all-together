@@ -22,7 +22,7 @@ class RedditSection extends React.Component {
                 <h1>Reddit</h1>
               </div>
               <div className={styles.itemList}>
-                <ul>
+                <ul className={styles.redditList}>
                   {_.map(this.props.redditData, (post, key) =>
                     <li className={styles.items} key={key}>
                       <img className={styles.image} src={ `${post.thumbnail}` } />

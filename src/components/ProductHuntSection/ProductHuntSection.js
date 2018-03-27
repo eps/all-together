@@ -19,7 +19,7 @@ class ProductHuntSection extends React.Component {
         <div className={styles.mainPanel}>
           <div>
             <div className={styles.header}>
-              <h1>ProductHunt</h1>
+              <h1>Product Hunt</h1>
             </div>
             <div className={styles.itemList}>
               <ul className={styles.productHuntList}>

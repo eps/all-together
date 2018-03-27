@@ -1,13 +1,24 @@
 @import "../../mixins/variables";
 
+.container {
+  display: flex;
+}
+
+.main-panel {
+  width: 75vw;
+}
+
 .header {
   padding: 20px 20px 0px;
+  font-family: $robotoFont;
 }
+
 .item-list {
   text-align: left;
   display: flex;
   padding: 10px;
 }
+
 .productHuntList {
   list-style: none;
   margin: 0;
@@ -60,11 +71,17 @@
   }
 }
 
-
-.container {
-  display: flex;
-}
-
-.main-panel {
-  width: 75vw;
+@media only screen and (max-width: 768px) {
+  .main-panel {
+    width: 100vw;
+    .item-list {
+      padding: 0;
+    }
+    .title {
+      font-size: 14px !important;
+    }
+    .info {
+      font-size: 11px !important;
+    }
+  }
 }
