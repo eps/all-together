@@ -7,15 +7,26 @@ import { updateCurrentPage } from '../../store/topics/actions';
 // import * as articlesSelectors from '../../store/topics/reducer';
 
 class ConnectedList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isToggled: false
+    };
+  }
 
   toggleLink = (e) => {
     let selected = e.target.getAttribute('name')
     this.props.loadActive(selected);
   }
 
+  toggleNav = () => {
+    this.setState({isToggled: !this.state.isToggled})
+  }
+
   render() {
     const { websites } = this.props;
-    return (
+
+    const links = (
       <ul className={styles.leftPanel}>
         {_.map(websites, (el, key) => (
           <li className={styles.website} key={key} onClick={e => this.toggleLink(e)}>
@@ -23,9 +34,32 @@ class ConnectedList extends React.Component {
           </li>
         ))}
       </ul>
+      )
+
+
+    return (
+      <div className={styles.sidebarContainer}>
+        <div className={styles.navMenu}>
+          { this.state.isToggled ?
+          <span className={styles.toggle} onClick={() => this.toggleNav()}>X</span> :
+          <span className={styles.toggle} onClick={() => this.toggleNav()}>&#9776;</span>
+          }
+        </div>
+        { this.state.isToggled ? links : null }
+      </div>
     )
   }
 }
+
+// const navbar = () => {
+//   return (
+//     <div className={styles.hamburger}>
+//       <span className={styles.toggle}>☰</span>
+//     </div>
+//   )
+// }
+
+
 
 function mapStateToProps(state) {
   return {

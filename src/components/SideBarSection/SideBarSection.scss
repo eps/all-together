@@ -1,13 +1,12 @@
 @import "../../mixins/variables";
 
-.container {
-  display: flex;
+.toggle {
+  display: none;
 }
 
 .left-panel {
   width: 20vw;
   background-color: $darkerGrey;
-  padding: 3vw;
   min-width: 200px;
   height: 100vh;
   list-style-type: none;
@@ -22,10 +21,37 @@
   }
 }
 
-@media only screen and (max-width: 900px) {
+// @media only screen and (max-width: 900px) {
+//   .left-panel {
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     height: auto;
+//     width: 100vw;
+//   }
+// }
+
+@media only screen and (max-width: 640px) {
   .left-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    .website {
+      .item {
+        &:hover {
+          background-color: purple;
+        }
+      }
+    }
   }
+  .nav-menu {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .toggle {
+    display: inline-block;
+    background-color: $darkerGrey;
+  }
+
 }
