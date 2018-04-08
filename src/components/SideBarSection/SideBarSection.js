@@ -10,23 +10,26 @@ class ConnectedList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isToggled: false
+      windowWidth: window.innerWidth,
+      mobileNavVisible: false
     };
   }
 
-  toggleLink = (e) => {
-    let selected = e.target.getAttribute('name')
-    this.props.loadActive(selected);
+  handleResize() {
+    this.setState({windowWidth: window.innerWidth});
   }
 
-  toggleNav = () => {
-    this.setState({isToggled: !this.state.isToggled})
-  }
+  // componentDidMount() {
+  //   window.addEventListener('resize', this.handleResize.bind(this));
+  // }
+  //
+  // componentWillUnmount() {
+  //   window.removeEventListener('resize', this.handleResize.bind(this));
+  // }
 
-  render() {
+  navigationLinks() {
     const { websites } = this.props;
-
-    const links = (
+    return (
       <ul className={styles.leftPanel}>
         {_.map(websites, (el, key) => (
           <li className={styles.website} key={key} onClick={e => this.toggleLink(e)}>
@@ -34,30 +37,48 @@ class ConnectedList extends React.Component {
           </li>
         ))}
       </ul>
-      )
+    )
+  }
 
+  renderMobileNav() {
+    if(this.state.mobileNavVisible) {
+      return this.navigationLinks();
+    }
+  }
 
-    return (
-      <div className={styles.sidebarContainer}>
-        <div className={styles.navMenu}>
-          { this.state.isToggled ?
-          <span className={styles.toggle} onClick={() => this.toggleNav()}>X</span> :
-          <span className={styles.toggle} onClick={() => this.toggleNav()}>&#9776;</span>
-          }
-        </div>
-        { this.state.isToggled ? links : null }
+  handleNavClick() {
+    if(!this.state.mobileNavVisible) {
+      this.setState({mobileNavVisible: true});
+    } else {
+      this.setState({mobileNavVisible: false});
+    }
+  }
+
+  renderNavigation() {
+  if(this.state.windowWidth <= 768) {
+    return [
+      <div key={6} className={styles.mobileNav}>
+        <p onClick={this.handleNavClick.bind(this)}>&#9776;</p>
+        {this.renderMobileNav()}
       </div>
+    ];
+  } else {
+    return [
+      <div key={7}>
+        {this.navigationLinks()}
+      </div>
+    ];
+  }
+  }
+
+  render() {
+    return (
+        <div className={styles.sidebarContainer}>
+          {this.renderNavigation()}
+        </div>
     )
   }
 }
-
-// const navbar = () => {
-//   return (
-//     <div className={styles.hamburger}>
-//       <span className={styles.toggle}>☰</span>
-//     </div>
-//   )
-// }
 
 
 

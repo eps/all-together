@@ -4,12 +4,15 @@
   display: none;
 }
 
-.left-panel {
+.sidebar-container {
   width: 20vw;
   background-color: $darkerGrey;
   min-width: 200px;
   height: 100vh;
   list-style-type: none;
+}
+
+.left-panel {
   .website {
     text-align: left;
     .item {
@@ -31,11 +34,26 @@
 //   }
 // }
 
-@media only screen and (max-width: 640px) {
-  .left-panel {
-    position: fixed;
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar-container {
+    display: flex;
+    flex-direction: column;
     width: 100%;
+    position: fixed;
     height: auto;
+  }
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .left-panel {  
     .website {
       .item {
         &:hover {
@@ -43,10 +61,6 @@
         }
       }
     }
-  }
-  .nav-menu {
-    display: flex;
-    justify-content: flex-end;
   }
 
   .toggle {
