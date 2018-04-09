@@ -58,7 +58,10 @@ class ConnectedList extends React.Component {
   if(this.state.windowWidth <= 768) {
     return [
       <div key={6} className={styles.mobileNav}>
-        <p onClick={this.handleNavClick.bind(this)}>&#9776;</p>
+        { this.state.mobileNavVisible ?
+          <span onClick={this.handleNavClick.bind(this)}>&times;</span> :
+          <span onClick={this.handleNavClick.bind(this)}>&#9776;</span>
+        }
         {this.renderMobileNav()}
       </div>
     ];
@@ -73,14 +76,12 @@ class ConnectedList extends React.Component {
 
   render() {
     return (
-        <div className={styles.sidebarContainer}>
-          {this.renderNavigation()}
-        </div>
+      <div className={styles.sidebarContainer}>
+        {this.renderNavigation()}
+      </div>
     )
   }
 }
-
-
 
 function mapStateToProps(state) {
   return {
