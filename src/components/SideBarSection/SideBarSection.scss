@@ -10,9 +10,12 @@
   min-width: 200px;
   height: 100vh;
   list-style-type: none;
+  padding-left: 5%;
+  padding-top: 10%;
 }
 
 .left-panel {
+  list-style-type: none;
   .website {
     text-align: left;
     .item {
@@ -24,19 +27,14 @@
   }
 }
 
-.mobile-nav {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
 @media only screen and (max-width: 768px) {
   .sidebar-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    position: fixed;
     height: auto;
+    padding-left: 0;
+    padding-top: 0;
   }
   .mobile-nav {
     display: flex;

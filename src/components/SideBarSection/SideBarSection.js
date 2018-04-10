@@ -19,16 +19,17 @@ class ConnectedList extends React.Component {
     this.setState({windowWidth: window.innerWidth});
   }
 
-  // componentDidMount() {
-  //   window.addEventListener('resize', this.handleResize.bind(this));
-  // }
-  //
-  // componentWillUnmount() {
-  //   window.removeEventListener('resize', this.handleResize.bind(this));
-  // }
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize.bind(this));
+  }
 
   navigationLinks() {
     const { websites } = this.props;
+    console.log('nav links')
     return (
       <ul className={styles.leftPanel}>
         {_.map(websites, (el, key) => (
