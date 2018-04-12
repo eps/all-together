@@ -28,6 +28,23 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .navbar-toggle {
+    padding: 9px 10px;
+    justify-content: center;
+    width: 22px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    .icon-bar {
+      width: 22px;
+      height: 2px;
+      display: block;
+      border-radius: 1px;
+      background-color: #3f3f3f;
+      &:not(:first-child) {
+        margin-top: 4px;
+      }
+    }
+  }
   .sidebar-container {
     display: flex;
     flex-direction: column;
@@ -39,7 +56,6 @@
   .mobile-nav {
     display: flex;
     flex-direction: column;
-    width: 100%;
     padding: 10px;
   }
   .left-panel {
@@ -51,10 +67,4 @@
       }
     }
   }
-
-  .toggle {
-    display: inline-block;
-    background-color: $darkerGrey;
-  }
-
 }
