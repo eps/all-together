@@ -34,6 +34,8 @@
     width: 22px;
     border: 1px solid lightgrey;
     border-radius: 4px;
+    cursor: pointer;
+    margin-left: auto;
     .icon-bar {
       width: 22px;
       height: 2px;
@@ -48,7 +50,7 @@
   .sidebar-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 100vw;
     height: auto;
     padding-left: 0;
     padding-top: 0;
@@ -57,6 +59,15 @@
     display: flex;
     flex-direction: column;
     padding: 10px;
+    .x {
+      color: #3f3f3f;
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+      width: 22px;
+      height: 40px;
+      margin-left: auto;
+    }
   }
   .left-panel {
     .website {

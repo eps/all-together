@@ -55,12 +55,17 @@ class ConnectedList extends React.Component {
     }
   }
 
+  toggleLink = (e) => {
+     let selected = e.target.getAttribute('name')
+     this.props.loadActive(selected);
+   }
+
   renderNavigation() {
   if(this.state.windowWidth <= 768) {
     return [
       <div key={6} className={styles.mobileNav}>
         { this.state.mobileNavVisible ?
-          <span onClick={this.handleNavClick.bind(this)}>&times;</span> :
+          <span className={styles.x} onClick={this.handleNavClick.bind(this)}>X</span> :
           <div className={styles.navbarToggle} onClick={this.handleNavClick.bind(this)}>
             <span className={styles.iconBar}></span>
             <span className={styles.iconBar}></span>
