@@ -10,21 +10,25 @@
   min-width: 200px;
   height: 100vh;
   list-style-type: none;
-  padding-left: 5%;
-  padding-top: 10%;
+  padding-left: 50px;
+  padding-top: 100px;
 }
 
 .left-panel {
   list-style-type: none;
   .website {
     text-align: left;
+    cursor: pointer;
     .item {
       line-height: 30px;
       width: 100%;
-      cursor: pointer;
       font-family: $ralewayFont;
     }
   }
+}
+
+.active {
+  font-weight: bold;
 }
 
 @media only screen and (max-width: 768px) {
@@ -69,13 +73,7 @@
       margin-left: auto;
     }
   }
-  .left-panel {
-    .website {
-      .item {
-        &:hover {
-          background-color: purple;
-        }
-      }
-    }
+  .active {
+    background-color: #dcdcdc;
   }
 }

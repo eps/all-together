@@ -11,7 +11,8 @@ class ConnectedList extends React.Component {
     super(props);
     this.state = {
       windowWidth: window.innerWidth,
-      mobileNavVisible: false
+      mobileNavVisible: false,
+      isActive: null
     };
   }
 
@@ -29,16 +30,24 @@ class ConnectedList extends React.Component {
 
   navigationLinks() {
     const { websites } = this.props;
-    console.log('nav links')
     return (
       <ul className={styles.leftPanel}>
         {_.map(websites, (el, key) => (
-          <li className={styles.website} key={key} onClick={e => this.toggleLink(e)}>
+          <li className={this.state.isActive === `${el}` ? `${styles.active}` : `${styles.website}`}
+            key={key}
+            onClick={e => this.toggleLink(e)}
+          >
             <div className={styles.item} name={el}>{el}</div>
           </li>
         ))}
       </ul>
     )
+  }
+
+  toggleLink = (e) => {
+    let selected = e.target.getAttribute('name')
+    this.props.loadActive(selected);
+    this.setState({isActive: selected})
   }
 
   renderMobileNav() {
@@ -54,11 +63,6 @@ class ConnectedList extends React.Component {
       this.setState({mobileNavVisible: false});
     }
   }
-
-  toggleLink = (e) => {
-     let selected = e.target.getAttribute('name')
-     this.props.loadActive(selected);
-   }
 
   renderNavigation() {
   if(this.state.windowWidth <= 768) {
