@@ -10,14 +10,13 @@ import { fetchPopularReddit } from '../../store/topics/actions';
 class App extends React.Component {
 
   renderSwitch = (props) => {
-    console.log(props.page)
     switch(props.page) {
       case 'reddit':
         return <RedditSection />
       case 'product hunt':
         return <ProductHuntSection />
       default:
-        return <p>testing</p>
+        return <p>home page</p>
     }
   }
 
@@ -32,7 +31,6 @@ class App extends React.Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state.reddit.page)
   const redditData = articlesSelectors.getReddit(state);
   return {
     page : state.reddit.page,

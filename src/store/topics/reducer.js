@@ -3,7 +3,7 @@ import * as types from './actionTypes.js'
 const initialState = {
   articlesById: null,
   websites: ['reddit', 'product hunt'],
-  page: 'reddit'
+  page: 'home'
 }
 
 export default function(state = initialState, action) {
