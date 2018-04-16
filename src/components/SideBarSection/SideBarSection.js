@@ -30,8 +30,10 @@ class ConnectedList extends React.Component {
 
   navigationLinks() {
     const { websites } = this.props;
+    console.log(websites);
     return (
       <ul className={styles.leftPanel}>
+      <li onClick={e => this.toggleLink(e)} name="home">All Together</li>
         {_.map(websites, (el, key) => (
           <li className={this.state.isActive === `${el}` ? `${styles.active}` : `${styles.website}`}
             key={key}
