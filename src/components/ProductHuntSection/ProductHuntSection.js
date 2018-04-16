@@ -92,7 +92,6 @@ class ProductHuntSection extends React.Component {
 
 function mapStateToProps(state) {
   const producthuntData = articlesSelectors.getProductHunt(state);
-  console.log(producthuntData)
   return {
     producthuntData
   };

@@ -10,7 +10,6 @@ class RedditSection extends React.Component {
     this.props.loadReddit();
   }
   render () {
-    console.log('reddit section', this.props)
     if (!this.props.redditData) {
       return <p>Loading...</p>
     }
