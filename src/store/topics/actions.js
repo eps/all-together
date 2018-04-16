@@ -14,6 +14,17 @@ export function fetchPopularReddit() {
   };
 }
 
+export function fetchPopularProductHunt() {
+  return async(dispatch) => {
+    try {
+      const producthuntArray = await productService.getPopularProduct();
+      dispatch({ type: types.PRODUCT_FETCHED, producthuntArray });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
 export function updateCurrentPage(page) {
   return (dispatch) => {
     const action = {
@@ -24,12 +35,13 @@ export function updateCurrentPage(page) {
   }
 }
 
-export function fetchPopularProductHunt() {
+export function fetchAll() {
   return async(dispatch) => {
     try {
       const producthuntArray = await productService.getPopularProduct();
-      dispatch({ type: types.PRODUCT_FETCHED, producthuntArray });
-    } catch (error) {
+      const subredditArray = await redditService.getPopularReddit();
+      dispatch({ type: types.HOMEPAGE_FETCHED, producthuntArray, subredditArray });  
+    } catch(error) {
       console.error(error);
     }
   }

@@ -24,14 +24,23 @@ export default function(state = initialState, action) {
         page: action.page
       }
     default:
-      return state
+      return {
+        ...state,
+        articlesById: action.subredditArray,
+        productHunt: action.producthuntArray
+      }
   }
 }
 
 export function getReddit(state) {
+  console.log(state)
   return state.reddit.articlesById;
 }
 
 export function getProductHunt(state) {
   return state.reddit.productHunt;
+}
+
+export function getAll(state) {
+  return state.reddit;
 }
