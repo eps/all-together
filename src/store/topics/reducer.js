@@ -1,9 +1,9 @@
 import * as types from './actionTypes.js'
 
 const initialState = {
-  articlesById: null,
+  reddit: null,
   websites: ['reddit', 'product hunt'],
-  page: 'home'
+  currentPage: 'home'
 }
 
 export default function(state = initialState, action) {
@@ -11,7 +11,7 @@ export default function(state = initialState, action) {
     case types.REDDIT_FETCHED:
       return {
         ...state,
-        articlesById: action.subredditArray
+        reddit: action.subredditArray
       }
       case types.PRODUCT_FETCHED:
         return {
@@ -21,12 +21,12 @@ export default function(state = initialState, action) {
     case types.UPDATED_PAGE:
       return {
         ...state,
-        page: action.page
+        currentPage: action.page
       }
     default:
       return {
         ...state,
-        articlesById: action.subredditArray,
+        reddit: action.subredditArray,
         productHunt: action.producthuntArray
       }
   }
@@ -34,7 +34,7 @@ export default function(state = initialState, action) {
 
 export function getReddit(state) {
   console.log(state)
-  return state.websites.articlesById;
+  return state.websites.reddit;
 }
 
 export function getProductHunt(state) {

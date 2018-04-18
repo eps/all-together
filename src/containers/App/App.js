@@ -34,7 +34,7 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    page : state.websites.page
+    page : state.websites.currentPage
   };
 }
 
