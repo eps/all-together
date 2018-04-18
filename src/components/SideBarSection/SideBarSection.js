@@ -30,10 +30,13 @@ class ConnectedList extends React.Component {
 
   navigationLinks() {
     const { websites } = this.props;
-    console.log(websites);
     return (
       <ul className={styles.leftPanel}>
-      <li onClick={e => this.toggleLink(e)} name="home">All Together</li>
+        <li className={this.state.isActive === 'home' ? `${styles.active}` : `${styles.website}`} 
+          onClick={e => this.toggleLink(e)} 
+        >
+          <div className={styles.item} name="home">All Together</div>
+        </li>
         {_.map(websites, (el, key) => (
           <li className={this.state.isActive === `${el}` ? `${styles.active}` : `${styles.website}`}
             key={key}
@@ -50,6 +53,7 @@ class ConnectedList extends React.Component {
     let selected = e.target.getAttribute('name')
     this.props.loadActive(selected);
     this.setState({isActive: selected})
+    console.log(selected)
   }
 
   renderMobileNav() {

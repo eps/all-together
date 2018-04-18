@@ -11,8 +11,7 @@ import HomePage from '../../components/HomePage/HomePage';
 class App extends React.Component {
 
   renderSwitch = (props) => {
-    console.log(props);
-    switch(props.page) {
+    switch(props.currentPage) {
       case 'reddit':
         return <RedditSection />
       case 'product hunt':
@@ -34,7 +33,7 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    page : state.websites.currentPage
+    currentPage : state.websites.currentPage
   };
 }
 
