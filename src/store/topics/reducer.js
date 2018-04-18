@@ -34,13 +34,13 @@ export default function(state = initialState, action) {
 
 export function getReddit(state) {
   console.log(state)
-  return state.reddit.articlesById;
+  return state.websites.articlesById;
 }
 
 export function getProductHunt(state) {
-  return state.reddit.productHunt;
+  return state.websites.productHunt;
 }
 
 export function getAll(state) {
-  return state.reddit;
+  return state.websites;
 }

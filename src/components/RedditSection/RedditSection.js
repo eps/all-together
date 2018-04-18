@@ -52,7 +52,7 @@ class RedditSection extends React.Component {
 function mapStateToProps(state) {
   const redditData = articlesSelectors.getReddit(state);
   return {
-    page : state.reddit.page,
+    page : state.websites.page,
     redditData
   };
 }

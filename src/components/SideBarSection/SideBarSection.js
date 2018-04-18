@@ -101,8 +101,8 @@ class ConnectedList extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    page: state.reddit.page,
-    websites: state.reddit.websites
+    page: state.websites.page,
+    websites: state.websites.websites
   };
 }
 

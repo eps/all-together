@@ -2,10 +2,10 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux'
 // import createLogger from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
-import reddit from './store/topics/reducer'
+import websites from './store/topics/reducer'
 
 const reducer = combineReducers({
-  reddit
+  websites
 })
 const store =
   createStore(reducer, compose(

@@ -34,7 +34,7 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    page : state.reddit.page
+    page : state.websites.page
   };
 }
 
