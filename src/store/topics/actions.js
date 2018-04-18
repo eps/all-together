@@ -7,7 +7,7 @@ export function fetchPopularReddit() {
     try {
       const subredditArray = await redditService.getPopularReddit();
       console.log(subredditArray)
-      dispatch({ type: types.ARTICLES_FETCHED, subredditArray });
+      dispatch({ type: types.REDDIT_FETCHED, subredditArray });
     } catch (error) {
       console.error(error);
     }

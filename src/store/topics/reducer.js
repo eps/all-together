@@ -8,7 +8,7 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
-    case types.ARTICLES_FETCHED:
+    case types.REDDIT_FETCHED:
       return {
         ...state,
         articlesById: action.subredditArray
