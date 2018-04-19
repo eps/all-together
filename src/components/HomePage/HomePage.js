@@ -1,4 +1,5 @@
 import React from 'react';
+import * as _ from 'lodash';
 import { connect } from 'react-redux';
 // import styles from './HomePage.scss';
 import { fetchAll } from '../../store/topics/actions';
@@ -9,22 +10,40 @@ class HomePage extends React.Component {
     this.props.loadAll();
   }
 
+  renderPopularReddit() {
+    const reddit = this.props.content.reddit;
+    let redditSliced = null;
+    if (reddit === undefined) {
+      return <p>loading...</p>
+    } else {
+      redditSliced = reddit.slice(0, 11)
+      return (
+        <ul>
+          {_.map(redditSliced, (i, key) => (
+            <li key={key}>
+              {i.title}
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  }
+
   render () {
-      const { home } = this.props;
-      console.log(home) 
     return (
       <div>
         <h1>HomePage</h1>
+        {this.renderPopularReddit()}
       </div>
-      )
-    }
+    )
+  }
 }
 
 function mapStateToProps(state) {
-  const allData = articlesSelectors.getAll(state)
-  console.log(allData)
+  const content = articlesSelectors.getAll(state)
+  console.log(content)
   return {
-    allData
+    content
   };
 }
 
