@@ -1,0 +1,25 @@
+@import "../../mixins/variables";
+
+.items {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    align-items: center;
+    &:hover {
+      background-color: $darkerGrey;
+      cursor: pointer;
+    }
+    .image {
+      margin-right: 10px;
+      display: block;
+      width: 70px !important;
+      height: 70px !important;
+    }
+    .title {
+      font-size: 16px;
+      a {
+        color: $contentTitle;
+        text-decoration: none;
+      }
+    }
+  }

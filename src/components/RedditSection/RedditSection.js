@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as articlesSelectors from '../../store/topics/reducer';
 // import { fetchPopularReddit } from '../../store/topics/actions';
 import styles from './RedditSection.scss';
+import RedditItems from '../RedditItems/RedditItems';
 
 class RedditSection extends React.Component {
   componentDidMount() {
@@ -26,24 +27,9 @@ class RedditSection extends React.Component {
               <div className={styles.itemList}>
                 <ul className={styles.redditList}>
                   {_.map(reddit.redditArray, (post, key) =>
-                    <li className={styles.items} key={key}>
-                      <img className={styles.image} src={ `${post.thumbnail}` } />
-                        <div className={styles.content}>
-                            <span className={styles.title}>
-                              <a href={ `${post.url}` }>{post.title}</a>
-                            </span>
-                            <div className={styles.info}>
-                              <span>
-                                <a href={ `${post.url}` }>{post.score} points by {post.author} </a>
-                              </span>
-                              <span className={styles.comment}>
-                                <a href={'https://www.reddit.com' + `${post.permalink}`}>{post.num_comments} comments</a>
-                              </span>
-                            </div>
-                          </div>
-                      </li>
-                    )}
-                  </ul>
+                    <RedditItems reddit={post} key={key} />
+                  )}
+                </ul>
               </div>
             </div>
         </div>
