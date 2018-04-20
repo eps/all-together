@@ -10,12 +10,10 @@ export default function(state = initialState, action) {
   switch (action.type) {
     case types.REDDIT_FETCHED:
       return {
-        ...state,
         reddit: action.subredditArray
       }
       case types.PRODUCT_FETCHED:
         return {
-          ...state,
           productHunt: action.producthuntArray
         }
     case types.UPDATED_PAGE:
@@ -26,8 +24,8 @@ export default function(state = initialState, action) {
     default:
       return {
         ...state,
-        reddit: action.subredditArray,
-        productHunt: action.producthuntArray
+        reddit: action.reddit,
+        productHunt: action.producthunt
       }
   }
 }

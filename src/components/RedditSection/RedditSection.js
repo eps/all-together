@@ -2,27 +2,29 @@ import * as _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import * as articlesSelectors from '../../store/topics/reducer';
-import { fetchPopularReddit } from '../../store/topics/actions';
+// import { fetchPopularReddit } from '../../store/topics/actions';
 import styles from './RedditSection.scss';
 
 class RedditSection extends React.Component {
   componentDidMount() {
-    this.props.loadReddit();
+    // this.props.loadReddit();
   }
   render () {
     if (!this.props.redditData) {
       return <p>Loading...</p>
     }
+    
+    const reddit = this.props.redditData;
     return (
       <div className={styles.container}>
           <div className={styles.mainPanel}>
             <div>
               <div className={styles.header}>
-                <h1>Reddit</h1>
+                <h1>{this.props.title}</h1>
               </div>
               <div className={styles.itemList}>
                 <ul className={styles.redditList}>
-                  {_.map(this.props.redditData, (post, key) =>
+                  {_.map(reddit.redditArray, (post, key) =>
                     <li className={styles.items} key={key}>
                       <img className={styles.image} src={ `${post.thumbnail}` } />
                         <div className={styles.content}>
@@ -51,18 +53,19 @@ class RedditSection extends React.Component {
 
 function mapStateToProps(state) {
   const redditData = articlesSelectors.getReddit(state);
+  console.log(redditData);
   return {
     page : state.websites.currentPage,
     redditData
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    loadReddit() {
-      dispatch(fetchPopularReddit())
-    }
-  }
-}
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     loadReddit() {
+//       dispatch(fetchPopularReddit())
+//     }
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RedditSection);
+export default connect(mapStateToProps)(RedditSection);

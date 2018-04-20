@@ -7,7 +7,12 @@ export function fetchPopularReddit() {
     try {
       const subredditArray = await redditService.getPopularReddit();
       console.log(subredditArray)
-      dispatch({ type: types.REDDIT_FETCHED, subredditArray });
+      dispatch({ 
+        type: types.REDDIT_FETCHED, 
+        reddit: {
+          subredditArray
+        }
+      });
     } catch (error) {
       console.error(error);
     }
@@ -39,8 +44,20 @@ export function fetchAll() {
   return async(dispatch) => {
     try {
       const producthuntArray = await productService.getPopularProduct();
-      const subredditArray = await redditService.getPopularReddit();
-      dispatch({ type: types.HOMEPAGE_FETCHED, producthuntArray, subredditArray });  
+      const redditArray = await redditService.getPopularReddit();
+      // const slicedProductHunt = producthuntArray.slice(0, 11);
+      // const slicedReddit = redditArray.slice(0, 11)
+      dispatch({ 
+        type: types.HOMEPAGE_FETCHED, 
+        producthunt: {
+          title: 'product hunt',
+          producthuntArray
+        }, 
+        reddit: {
+          title: 'reddit',
+          redditArray    
+        }
+      });  
     } catch(error) {
       console.error(error);
     }
