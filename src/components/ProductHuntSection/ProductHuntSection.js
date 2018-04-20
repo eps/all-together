@@ -2,18 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styles from './ProductHuntSection.scss';
 import Icons from '../Icons/Icons';
-import { fetchPopularProductHunt } from '../../store/topics/actions';
 import * as articlesSelectors from '../../store/topics/reducer';
 
 class ProductHuntSection extends React.Component {
-  componentDidMount() {
-    this.props.loadProductHunt();
-  }
 
   render () {
+    const producthunt = this.props.producthuntData;
+
     if (!this.props.producthuntData) {
       return <p>Loading...</p>
     }
+    
     return (
       <div className={styles.container}>
         <div className={styles.mainPanel}>
@@ -23,7 +22,7 @@ class ProductHuntSection extends React.Component {
             </div>
             <div className={styles.itemList}>
               <ul className={styles.productHuntList}>
-                {this.props.producthuntData.map((post, key) =>
+                {producthunt.producthuntArray.map((post, key) =>
                   <li className={styles.items} key={key}>
                     <img className={styles.image} src={ `${post.thumbnail.image_url}` } />
                       <div className={styles.content}>
@@ -92,18 +91,10 @@ class ProductHuntSection extends React.Component {
 
 function mapStateToProps(state) {
   const producthuntData = articlesSelectors.getProductHunt(state);
+  console.log(producthuntData)
   return {
     producthuntData
   };
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
-    loadProductHunt() {
-      dispatch(fetchPopularProductHunt())
-    }
-  }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProductHuntSection);
+export default connect(mapStateToProps)(ProductHuntSection);

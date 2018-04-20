@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import styles from './SideBarSection.scss';
 import * as _ from 'lodash';
 import { connect } from "react-redux";
@@ -119,9 +119,5 @@ function mapDispatchToProps(dispatch) {
 }
 
 const SideBarSection = connect(mapStateToProps, mapDispatchToProps)(ConnectedList);
-
-ConnectedList.propTypes = {
-  websites: PropTypes.array.isRequired
-}
 
 export default SideBarSection;

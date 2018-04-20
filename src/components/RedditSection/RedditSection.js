@@ -10,17 +10,18 @@ class RedditSection extends React.Component {
     // this.props.loadReddit();
   }
   render () {
+    const reddit = this.props.redditData;
+    
     if (!this.props.redditData) {
       return <p>Loading...</p>
     }
     
-    const reddit = this.props.redditData;
     return (
       <div className={styles.container}>
           <div className={styles.mainPanel}>
             <div>
               <div className={styles.header}>
-                <h1>{this.props.title}</h1>
+                <h1>Reddit</h1>
               </div>
               <div className={styles.itemList}>
                 <ul className={styles.redditList}>
