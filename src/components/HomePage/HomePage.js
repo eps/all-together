@@ -28,8 +28,6 @@ class HomePage extends React.Component {
       console.log(combineContent)
     }
 
-
-
     return (
       <ul>
         {_.map(combineContent, (post, key) => (
@@ -37,10 +35,6 @@ class HomePage extends React.Component {
         ))}
       </ul>
     )
-  }
-
-  renderPost() {
-
   }
 
   render () {
