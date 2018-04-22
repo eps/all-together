@@ -1,7 +1,7 @@
 import React from 'react';
 import * as _ from 'lodash';
 import { connect } from 'react-redux';
-// import styles from './HomePage.scss';
+import styles from './HomePage.scss';
 import { fetchAll } from '../../store/topics/actions';
 import * as articlesSelectors from '../../store/topics/reducer';
 import RedditItems from '../RedditItems/RedditItems';
@@ -26,7 +26,6 @@ class HomePage extends React.Component {
         ...producthunt.producthuntArray[i],
         source: 'product hunt'
       })
-      console.log(combineContent)
     }
 
     return (
@@ -46,7 +45,9 @@ class HomePage extends React.Component {
     } 
     return (
       <div>
-        <h1>HomePage</h1>
+        <div className={styles.header}>
+          <h1>HomePage</h1>
+        </div>
         {this.renderPopularReddit()}
       </div>
     )
