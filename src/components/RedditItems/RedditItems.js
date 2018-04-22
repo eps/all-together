@@ -1,5 +1,4 @@
 import React from 'react';
-// import * as _ from 'lodash';
 import styles from './RedditItems.scss';
 
 const RedditItems = (props) => {
@@ -12,6 +11,9 @@ const RedditItems = (props) => {
           <a href={ `${post.url}` }>{post.title}</a>
         </span>
         <div className={styles.info}>
+        <span className={styles.source}>
+          {post.source}
+        </span>
           <span>
             <a href={ `${post.url}` }>{post.score} points by {post.author} </a>
           </span>
