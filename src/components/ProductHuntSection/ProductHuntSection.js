@@ -22,8 +22,8 @@ class ProductHuntSection extends React.Component {
             </div>
             <div className={styles.itemList}>
               <ul className={styles.productHuntList}>
-                {producthunt.producthuntArray.map((post, index) =>
-                  <ProductHuntItems producthunt={post} key={index} />
+                {producthunt.producthuntArray.map((post, key) =>
+                  <ProductHuntItems producthunt={post} key={key} />
                 )}
               </ul>
             </div>
@@ -33,42 +33,6 @@ class ProductHuntSection extends React.Component {
       )
     }
 }
-
-// const ProductHunt = (props) => {
-//   return (
-//     <div>
-//       <div className={styles.header}>
-//         <h1>ProductHunt</h1>
-//       </div>
-//       <div className={styles.itemList}>
-//         <ul>
-//           {props.productHunt.map((post) =>
-//             <li className={styles.items} key={post.id}>
-//               <img className={styles.image} src={ `${post.thumbnail.image_url}` } />
-//                 <div className={styles.content}>
-//                     <span className={styles.title}>
-//                       <a href={ `${post.discussion_url}` }>{post.name}</a>
-//                     </span>
-//                     <span className={styles.tagline}>
-//                       <a href={ `${post.discussion_url}` }>{post.tagline}</a>
-//                     </span>
-//                     <div className={styles.info}>
-//                       <span>
-//                         <a href={ `${post.discussion_url}` }>{post.votes_count} upvotes</a>
-//                       </span>
-//                       <span className={styles.comment}>
-//                         <a href={'https://www.producthunt.com/posts/' + `${post.slug}`}> {post.comments_count} comments</a>
-//                       </span>
-//                       <Icons icons={post.makers} />
-//                     </div>
-//                   </div>
-//               </li>
-//             )}
-//           </ul>
-//       </div>
-//     </div>
-  // )
-// }
 
 function mapStateToProps(state) {
   const producthuntData = articlesSelectors.getProductHunt(state);

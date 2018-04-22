@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchAll } from '../../store/topics/actions';
 import * as articlesSelectors from '../../store/topics/reducer';
 import RedditItems from '../RedditItems/RedditItems';
+import ProductHuntItems from '../ProductHuntItems/ProductHuntItems';
 
 class HomePage extends React.Component {
   componentDidMount() {
@@ -31,7 +32,9 @@ class HomePage extends React.Component {
     return (
       <ul>
         {_.map(combineContent, (post, key) => (
-          post.source === 'reddit' ? <RedditItems reddit={post} key={key} /> : <span key={key}>{post.source}{post.name}</span>
+          post.source === 'reddit' ? 
+          <RedditItems reddit={post} key={key} /> : 
+          <ProductHuntItems producthunt={post} key={key}/>
         ))}
       </ul>
     )
