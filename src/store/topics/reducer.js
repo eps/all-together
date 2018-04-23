@@ -3,7 +3,11 @@ import * as types from './actionTypes.js'
 const initialState = {
   reddit: null,
   websites: ['reddit', 'product hunt'],
-  currentPage: 'home'
+  currentPage: 'home',
+  visibleSections: {
+    reddit: true,
+    producthunt: true,
+  }
 }
 
 export default function(state = initialState, action) {
@@ -21,6 +25,14 @@ export default function(state = initialState, action) {
         ...state,
         currentPage: action.page
       }
+    case types.UPDATED_SETTINGS:
+    return {
+      ...state,
+      visibleSections: {
+        ...state.visibleSections,
+        [action.setting]: !state.visibleSections[action.setting],
+      }
+    }
     default:
       return {
         ...state,

@@ -4,7 +4,7 @@ import styles from './SideBarSection.scss';
 import * as _ from 'lodash';
 import { connect } from "react-redux";
 import { updateCurrentPage } from '../../store/topics/actions';
-// import * as articlesSelectors from '../../store/topics/reducer';
+import SettingsContainer from '../SettingsContainer/SettingsContainer';
 
 class ConnectedList extends React.Component {
   constructor(props) {
@@ -99,6 +99,7 @@ class ConnectedList extends React.Component {
     return (
       <div className={styles.sidebarContainer}>
         {this.renderNavigation()}
+        <SettingsContainer />
       </div>
     )
   }

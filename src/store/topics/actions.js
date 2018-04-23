@@ -63,3 +63,13 @@ export function fetchAll() {
     }
   }
 }
+
+export function updateSettings(setting) {
+  return (dispatch) => {
+    const action = {
+      type: types.UPDATED_SETTINGS,
+      setting
+    }
+    dispatch(action)
+  }
+}
