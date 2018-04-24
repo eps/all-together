@@ -1,15 +1,16 @@
 import React from 'react';
 import styles from './SettingsContainer.scss';
-// import * as articlesSelectors from '../../store/topics/reducer';
 import { connect } from 'react-redux';
-// import { fetchAll } from '../../store/topics/actions';
 import { updateSettings } from '../../store/topics/actions';
+import ReactModal from 'react-modal';
+
+ReactModal.setAppElement(document.getElementById('root'));
 
 class SettingsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: null,
+      isActive: false,
       checkboxState: true
     };
   }
@@ -22,7 +23,6 @@ class SettingsContainer extends React.Component {
     const selected = e.target.value;
     this.props.loadActive(selected);
     console.log('change', e.target.value)
-    // this.setState({checkboxState: !this.state.checkboxState})
   }
 
   // createCheckBoxes = (props) => {
@@ -39,30 +39,48 @@ class SettingsContainer extends React.Component {
   //   })
   // }
 
+  handleCloseModal() {
+    this.setState({isActive: !this.state.isActive});
+  }
+
   render() {
-    console.log(this.props);
     const settings = (
-      <div className={styles.container}>
-        <div>Settings Panel</div>
-        <input 
-        type="checkbox"
-         id='reddit'
-         value='reddit'
-         name='reddit'
-         checked={this.props.websites.visibleSections.reddit}
-         onChange={e => this.handleChange(e)}
-       /> 
-        <label htmlFor='reddit'>reddit</label>
-        <input 
-         type="checkbox"
-         id='product hunt'
-         value='producthunt'
-         name='product hunt'
-         checked={this.props.websites.visibleSections.producthunt}
-         onChange={e => this.handleChange(e)}
-       /> 
-        <label htmlFor='product hunt'>product hunt</label>
-      </div>
+      <ReactModal
+        isOpen={this.state.isActive}
+        onRequestClose={this.closeModal}
+        className={styles.Modal}
+        overlayClassName={styles.Overlay}
+        contentLabel="Example Modal"
+      >
+        <div className={styles.modalHeader}>Settings</div>
+        <div className={styles.modalBody}>
+          <ul>
+            <li>
+              <input 
+                type="checkbox"
+                id='reddit'
+                value='reddit'
+                name='reddit'
+                checked={this.props.websites.visibleSections.reddit}
+                onChange={e => this.handleChange(e)}
+              /> 
+              <label htmlFor='reddit'>reddit</label>
+            </li>
+            <li>
+              <input 
+                type="checkbox"
+                id='product hunt'
+                value='producthunt'
+                name='product hunt'
+                checked={this.props.websites.visibleSections.producthunt}
+                onChange={e => this.handleChange(e)}
+              />
+            <label htmlFor='product hunt'>product hunt</label>
+            </li>
+          </ul> 
+          <button onClick={e=> this.handleCloseModal(e)}>Close Modal</button>
+        </div>
+      </ReactModal>
     )
     return (
       <div className={styles.settings}>
