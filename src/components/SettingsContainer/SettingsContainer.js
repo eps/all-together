@@ -25,20 +25,6 @@ class SettingsContainer extends React.Component {
     console.log('change', e.target.value)
   }
 
-  // createCheckBoxes = (props) => {
-  //   console.log(props.websites)
-  //   const websites = props.websites;
-  //   websites.map((website) => {
-  //     <label htmlFor={website}></label>,
-  //     <input 
-  //       type="checkbox"
-  //       id={website}
-  //       value={website}
-  //       name={website}
-  //     /> 
-  //   })
-  // }
-
   handleCloseModal() {
     this.setState({isActive: !this.state.isActive});
   }
@@ -84,7 +70,7 @@ class SettingsContainer extends React.Component {
     )
     return (
       <div className={styles.settings}>
-        <span onClick={e => this.toggleLink(e)}>settings</span>
+        <span className={this.state.isActive ? `${styles.active}` : `${styles.website}`} onClick={e => this.toggleLink(e)}>settings</span>
         {this.state.isActive ? settings : null }
       </div>
     )
