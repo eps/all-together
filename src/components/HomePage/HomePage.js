@@ -15,17 +15,23 @@ class HomePage extends React.Component {
   renderPopularReddit() {
     const reddit = this.props.content.reddit;
     const producthunt = this.props.content.productHunt;
+    const visible = this.props.content.visibleSections;
     const combineContent = [];
 
     for(var i = 0; i < 10; i++) {
-      combineContent.push({
-        ...reddit.redditArray[i],
-        source: 'reddit'
-      })
-      combineContent.push({
-        ...producthunt.producthuntArray[i],
-        source: 'product hunt'
-      })
+      if (visible.reddit) {
+        combineContent.push({
+          ...reddit.redditArray[i],
+          source: 'reddit'
+        })
+      }
+
+      if (visible.producthunt) {
+        combineContent.push({
+          ...producthunt.producthuntArray[i],
+          source: 'product hunt'
+        })
+      }
     }
 
     return (
