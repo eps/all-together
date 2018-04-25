@@ -1,22 +1,22 @@
 @import "../../mixins/variables";
 
+.container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 20vw);
+}
+
 .header {
   padding: 20px 20px 0px;
   font-family: $robotoFont;
 }
 
-.container {
-  display: flex;
-}
-
-.main-panel {
-  width: 75vw;
-}
 .item-list {
   text-align: left;
   display: flex;
   padding: 10px;
 }
+
 .redditList {
   list-style: none;
   margin: 0;
@@ -25,7 +25,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .main-panel {
+  .container {
     width: 100vw;
     .item-list {
       padding: 0;

@@ -19,19 +19,15 @@ class RedditSection extends React.Component {
     
     return (
       <div className={styles.container}>
-          <div className={styles.mainPanel}>
-            <div>
-              <div className={styles.header}>
-                <h1>Reddit</h1>
-              </div>
-              <div className={styles.itemList}>
-                <ul className={styles.redditList}>
-                  {_.map(reddit.redditArray, (post, key) =>
-                    <RedditItems reddit={post} key={key} />
-                  )}
-                </ul>
-              </div>
-            </div>
+        <div className={styles.header}>
+          <h1>Reddit</h1>
+        </div>
+        <div className={styles.itemList}>
+          <ul className={styles.redditList}>
+            {_.map(reddit.redditArray, (post, key) =>
+              <RedditItems reddit={post} key={key} />
+            )}
+          </ul>
         </div>
       </div>
     )

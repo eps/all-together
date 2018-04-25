@@ -25,7 +25,9 @@ class App extends React.Component {
     return (
       <div className={styles.container}>
         <SideBarSection />
-        {this.renderSwitch(this.props)}
+        <div className={styles.contentContainer}>
+          {this.renderSwitch(this.props)}
+        </div>
       </div>
     )
   }

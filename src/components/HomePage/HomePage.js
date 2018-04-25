@@ -35,13 +35,15 @@ class HomePage extends React.Component {
     }
 
     return (
-      <ul>
-        {_.map(combineContent, (post, key) => (
-          post.source === 'reddit' ? 
-          <RedditItems reddit={post} key={key} /> : 
-          <ProductHuntItems producthunt={post} key={key}/>
-        ))}
-      </ul>
+      <div className={styles.itemList}>
+        <ul>
+          {_.map(combineContent, (post, key) => (
+            post.source === 'reddit' ? 
+            <RedditItems reddit={post} key={key} /> : 
+            <ProductHuntItems producthunt={post} key={key}/>
+          ))}
+        </ul>
+      </div>
     )
   }
 

@@ -15,19 +15,15 @@ class ProductHuntSection extends React.Component {
     
     return (
       <div className={styles.container}>
-        <div className={styles.mainPanel}>
-          <div>
-            <div className={styles.header}>
-              <h1>Product Hunt</h1>
-            </div>
-            <div className={styles.itemList}>
-              <ul className={styles.productHuntList}>
-                {producthunt.producthuntArray.map((post, key) =>
-                  <ProductHuntItems producthunt={post} key={key} />
-                )}
-              </ul>
-            </div>
-          </div>
+        <div className={styles.header}>
+          <h1>Product Hunt</h1>
+        </div>
+        <div className={styles.itemList}>
+          <ul className={styles.productHuntList}>
+            {producthunt.producthuntArray.map((post, key) =>
+              <ProductHuntItems producthunt={post} key={key} />
+            )}
+          </ul>
         </div>
       </div>
       )

@@ -2,10 +2,8 @@
 
 .container {
   display: flex;
-}
-
-.main-panel {
-  width: 75vw;
+  width: calc(100vw - 20vw);
+  flex-direction: column;
 }
 
 .header {
@@ -27,7 +25,7 @@
 }
 
 @media only screen and (max-width: 768px) {
-  .main-panel {
+  .container {
     width: 100vw;
     .item-list {
       padding: 0;
