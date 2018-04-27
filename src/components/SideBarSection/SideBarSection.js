@@ -28,9 +28,43 @@ class ConnectedList extends React.Component {
     window.removeEventListener('resize', this.handleResize.bind(this));
   }
 
+  // showVisibleLinks = (props) => {
+  //   return (
+  //     props.map(el, key) => (
+  //       <li className={this.state.isActive === `${el}` ? `${styles.active}` : `${styles.website}`}
+  //         key={key}
+  //         onClick={e => this.toggleLink(e)}
+  //       >
+  //         <div className={styles.item} name={el}>{el}</div>
+  //       </li>
+  //     ))
+  // }
+
   navigationLinks() {
-    const { websites } = this.props;
-    console.log(this.props);
+    const { websites, visible } = this.props;
+    const updatedLinks = [];
+    console.log('nav links', updatedLinks, visible);
+
+    if (!visible['reddit']) {
+      const index = websites.indexOf('reddit');
+      if (index > -1) {
+        websites.splice(index, 1);
+        updatedLinks.push(websites.splice(index, 1))
+      }
+    } else {
+      updatedLinks.push('reddit');
+    }
+
+    if (!visible['producthunt']) {
+      const index = websites.indexOf('product hunt');
+      if (index > -1) {
+        websites.splice(index, 1);
+        updatedLinks.push(websites.splice(index, 1))
+      }
+    } else {
+      updatedLinks.push('product hunt');
+    } 
+    
     return (
       <ul className={styles.leftPanel}>
         <li className={this.state.isActive === 'home' ? `${styles.active}` : `${styles.website}`} 
@@ -38,7 +72,7 @@ class ConnectedList extends React.Component {
         >
           <div className={this.props.page === 'home' ? `${styles.active}` : `${styles.website}`} name="home">home</div>
         </li>
-        {_.map(websites, (el, key) => (
+        {_.map(updatedLinks, (el, key) => (
           <li className={this.state.isActive === `${el}` ? `${styles.active}` : `${styles.website}`}
             key={key}
             onClick={e => this.toggleLink(e)}
@@ -107,6 +141,7 @@ class ConnectedList extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    visible: state.websites.visibleSections,
     page: state.websites.currentPage,
     websites: state.websites.websites
   };
