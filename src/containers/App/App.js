@@ -13,15 +13,16 @@ class App extends React.Component {
   renderSwitch = (props) => {
     switch(props.currentPage) {
       case 'reddit':
-        return <RedditSection />
+        return props.visibleSections.reddit ? <RedditSection /> : null
       case 'product hunt':
-        return <ProductHuntSection />
+        return props.visibleSections.producthunt ? <ProductHuntSection /> : null
       default:
         return <HomePage />
     }
   }
 
   render() {
+    console.log(this.props.visibleSections);
     return (
       <div className={styles.container}>
         <SideBarSection />
@@ -35,6 +36,7 @@ class App extends React.Component {
 
 function mapStateToProps(state) {
   return {
+    visibleSections: state.websites.visibleSections,
     currentPage : state.websites.currentPage
   };
 }
