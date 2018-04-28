@@ -62,14 +62,6 @@ class ConnectedList extends React.Component {
       websites.splice(1, 0, 'product hunt');
     }
 
-
-    // if (!visible['producthunt']) {
-    //   const index = websites.indexOf('product hunt');
-    //   if (index > -1) {
-    //     websites.splice(index, 1);
-    //   }
-    // }
-
     return (
       <ul className={styles.leftPanel}>
         <li className={this.state.isActive === 'home' ? `${styles.active}` : `${styles.website}`} 
@@ -85,6 +77,7 @@ class ConnectedList extends React.Component {
             <div className={styles.item} name={el}>{el}</div> 
           </li>
         ))}
+        <SettingsContainer />
       </ul>
     )
   }
@@ -138,7 +131,6 @@ class ConnectedList extends React.Component {
     return (
       <div className={styles.sidebarContainer}>
         {this.renderNavigation()}
-        <SettingsContainer />
       </div>
     )
   }

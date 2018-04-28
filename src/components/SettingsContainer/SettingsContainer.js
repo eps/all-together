@@ -68,9 +68,11 @@ class SettingsContainer extends React.Component {
       </ReactModal>
     )
     return (
-      <div className={styles.settings}>
-        <span className={this.state.isActive ? `${styles.active}` : `${styles.website}`} onClick={e => this.toggleLink(e)}>settings</span>
-        {this.state.isActive ? settings : null }
+      <div className='settings'>    
+        <li className={this.state.isActive ? `${styles.active}` : 'website'} 
+          onClick={e => this.toggleLink(e)}>
+          settings</li>
+          {this.state.isActive ? settings : null }
       </div>
     )
   }

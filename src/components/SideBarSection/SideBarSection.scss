@@ -12,6 +12,7 @@
   list-style-type: none;
   padding-left: 50px;
   padding-top: 100px;
+  font-family: $ralewayFont;
 }
 
 .left-panel {
@@ -22,7 +23,6 @@
     .item {
       line-height: 30px;
       width: 100%;
-      font-family: $ralewayFont;
     }
   }
 }
