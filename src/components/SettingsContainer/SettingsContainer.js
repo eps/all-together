@@ -22,7 +22,6 @@ class SettingsContainer extends React.Component {
   handleChange = (e) => {
     const selected = e.target.value;
     this.props.loadActive(selected);
-    console.log('change', e.target.value)
   }
 
   handleCloseModal() {

@@ -42,29 +42,34 @@ class ConnectedList extends React.Component {
 
   navigationLinks() {
     const { websites, visible } = this.props;
-    const updatedLinks = [];
-    console.log('nav links', updatedLinks, visible);
+    console.log('nav links', websites, visible);
 
     if (!visible['reddit']) {
-      const index = websites.indexOf('reddit');
+      let index = websites.indexOf('reddit');
       if (index > -1) {
         websites.splice(index, 1);
-        updatedLinks.push(websites.splice(index, 1))
       }
-    } else {
-      updatedLinks.push('reddit');
+    } else if (visible['reddit'] && websites.indexOf('reddit') == -1) {
+      websites.splice(0, 0, 'reddit');
     }
 
     if (!visible['producthunt']) {
-      const index = websites.indexOf('product hunt');
+      let index = websites.indexOf('product hunt');
       if (index > -1) {
         websites.splice(index, 1);
-        updatedLinks.push(websites.splice(index, 1))
       }
-    } else {
-      updatedLinks.push('product hunt');
-    } 
-    
+    } else if (visible['producthunt'] && websites.indexOf('product hunt') == -1) {
+      websites.splice(1, 0, 'product hunt');
+    }
+
+
+    // if (!visible['producthunt']) {
+    //   const index = websites.indexOf('product hunt');
+    //   if (index > -1) {
+    //     websites.splice(index, 1);
+    //   }
+    // }
+
     return (
       <ul className={styles.leftPanel}>
         <li className={this.state.isActive === 'home' ? `${styles.active}` : `${styles.website}`} 
@@ -72,12 +77,12 @@ class ConnectedList extends React.Component {
         >
           <div className={this.props.page === 'home' ? `${styles.active}` : `${styles.website}`} name="home">home</div>
         </li>
-        {_.map(updatedLinks, (el, key) => (
+        {_.map(websites, (el, key) => (
           <li className={this.state.isActive === `${el}` ? `${styles.active}` : `${styles.website}`}
             key={key}
             onClick={e => this.toggleLink(e)}
           >
-            <div className={styles.item} name={el}>{el}</div>
+            <div className={styles.item} name={el}>{el}</div> 
           </li>
         ))}
       </ul>
