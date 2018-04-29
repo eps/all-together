@@ -27,19 +27,7 @@ class ConnectedList extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize.bind(this));
   }
-
-  // showVisibleLinks = (props) => {
-  //   return (
-  //     props.map(el, key) => (
-  //       <li className={this.state.isActive === `${el}` ? `${styles.active}` : `${styles.website}`}
-  //         key={key}
-  //         onClick={e => this.toggleLink(e)}
-  //       >
-  //         <div className={styles.item} name={el}>{el}</div>
-  //       </li>
-  //     ))
-  // }
-
+  
   navigationLinks() {
     const { websites, visible } = this.props;
     console.log('nav links', websites, visible);

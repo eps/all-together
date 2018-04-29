@@ -16,7 +16,6 @@ class ProductHuntService {
     }
     const data = await response.json();
     const children = data.posts;
-    console.log('product hunt', children)
     if (!children) {
       throw new Error(`RedditService getDefaultSubreddits failed, children not returned`);
     }
