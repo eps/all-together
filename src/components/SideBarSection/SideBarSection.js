@@ -27,7 +27,7 @@ class ConnectedList extends React.Component {
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize.bind(this));
   }
-  
+
   navigationLinks() {
     const { websites, visible } = this.props;
     console.log('nav links', websites, visible);
@@ -57,6 +57,7 @@ class ConnectedList extends React.Component {
         >
           <div className={this.props.page === 'home' ? `${styles.active}` : `${styles.website}`} name="home">home</div>
         </li>
+        <div className={styles.divider}></div>
         {_.map(websites, (el, key) => (
           <li className={this.state.isActive === `${el}` ? `${styles.active}` : `${styles.website}`}
             key={key}
@@ -65,6 +66,7 @@ class ConnectedList extends React.Component {
             <div className={styles.item} name={el}>{el}</div> 
           </li>
         ))}
+        <div className={styles.divider}></div>
         <SettingsContainer />
       </ul>
     )

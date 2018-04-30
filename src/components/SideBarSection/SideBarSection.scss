@@ -1,5 +1,11 @@
 @import "../../mixins/variables";
 
+.divider {
+  background: linear-gradient(to right,#d5d5d5, rgba(220, 220, 220, 0));
+  height: 1px;
+  margin: 20px 0;
+}
+
 .toggle {
   display: none;
 }
