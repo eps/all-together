@@ -1,10 +1,11 @@
 import { connect } from 'react-redux';
 import React from 'react';
-import SideBarSection from '../../components/SideBarSection/SideBarSection';
 import styles from './App.scss';
-import RedditSection from '../../components/RedditSection/RedditSection';
-import ProductHuntSection from '../../components/ProductHuntSection/ProductHuntSection';
+import HackerNewsSection from '../../components/HackerNewsSection/HackerNewsSection';
 import HomePage from '../../components/HomePage/HomePage';
+import ProductHuntSection from '../../components/ProductHuntSection/ProductHuntSection';
+import RedditSection from '../../components/RedditSection/RedditSection';
+import SideBarSection from '../../components/SideBarSection/SideBarSection';
 // import * as articlesSelectors from '../../store/topics/reducer';
 // import { fetchPopularReddit } from '../../store/topics/actions';
 
@@ -12,6 +13,8 @@ class App extends React.Component {
 
   renderSwitch = (props) => {
     switch(props.currentPage) {
+      case 'hackernews': 
+        return props.visibleSections.hackernews ? <HackerNewsSection /> : null
       case 'reddit':
         return props.visibleSections.reddit ? <RedditSection /> : null
       case 'product hunt':
