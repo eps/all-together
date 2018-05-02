@@ -2,11 +2,12 @@ import * as types from './actionTypes.js'
 
 const initialState = {
   reddit: null,
-  websites: ['reddit', 'product hunt'],
+  websites: ['reddit', 'product hunt', 'hacker news'],
   currentPage: 'home',
   visibleSections: {
     reddit: true,
     producthunt: true,
+    hackernews: true
   }
 }
 
@@ -36,8 +37,9 @@ export default function(state = initialState, action) {
     default:
       return {
         ...state,
-        reddit: action.reddit,
-        productHunt: action.producthunt
+        hackernews: action.hackernews,
+        productHunt: action.producthunt,
+        reddit: action.reddit
       }
   }
 }

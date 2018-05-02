@@ -1,6 +1,7 @@
 import * as types from './actionTypes';
 import redditService from '../../services/reddit';
 import productService from '../../services/producthunt';
+import hackernewsService from '../../services/hackernews';
 
 // export function fetchPopularReddit() {
 //   return async(dispatch) => {
@@ -45,8 +46,7 @@ export function fetchAll() {
     try {
       const producthuntArray = await productService.getPopularProduct();
       const redditArray = await redditService.getPopularReddit();
-      // const slicedProductHunt = producthuntArray.slice(0, 11);
-      // const slicedReddit = redditArray.slice(0, 11)
+      const hackernewsArray = await hackernewsService.getHackerNews();
       dispatch({ 
         type: types.HOMEPAGE_FETCHED, 
         producthunt: {
@@ -56,6 +56,10 @@ export function fetchAll() {
         reddit: {
           title: 'reddit',
           redditArray    
+        },
+        hackernews: {
+          title: 'hackernews',
+          hackernewsArray
         }
       });  
     } catch(error) {
