@@ -13,7 +13,7 @@ class App extends React.Component {
 
   renderSwitch = (props) => {
     switch(props.currentPage) {
-      case 'hackernews': 
+      case 'hacker news': 
         return props.visibleSections.hackernews ? <HackerNewsSection /> : null
       case 'reddit':
         return props.visibleSections.reddit ? <RedditSection /> : null
