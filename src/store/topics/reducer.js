@@ -53,6 +53,10 @@ export function getProductHunt(state) {
   return state.websites.productHunt;
 }
 
+export function getHackerNews(state) {
+  return state.websites.hackernews;
+}
+
 export function getAll(state) {
   return state.websites;
 }
