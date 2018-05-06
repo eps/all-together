@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as articlesSelectors from '../../store/topics/reducer';
+import styles from './HackerNewsSection.scss';
 
 class HackerNewsSection extends React.Component {
 
-  render () {   
+  render () { 
+    console.log(this.props);  
     return (
       <div className={styles.container}>
         <div className={styles.header}>
@@ -18,14 +20,12 @@ class HackerNewsSection extends React.Component {
     }
 }
 
-// function mapStateToProps(state) {
-//   const producthuntData = articlesSelectors.getProductHunt(state);
-//   console.log(producthuntData)
-//   return {
-//     producthuntData
-//   };
-// }
+function mapStateToProps(state) {
+  const hackernewsData = articlesSelectors.getHackerNews(state);
+  console.log(hackernewsData)
+  return {
+    hackernewsData
+  };
+}
 
-// export default connect(mapStateToProps)(HackerNewsSection);
-
-export default HackerNewsSection;
+export default connect(mapStateToProps)(HackerNewsSection);
