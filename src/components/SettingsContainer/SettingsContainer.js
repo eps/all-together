@@ -55,12 +55,23 @@ class SettingsContainer extends React.Component {
               <input 
                 type="checkbox"
                 id='product hunt'
-                value='producthunt'
+                value='product hunt'
                 name='product hunt'
                 checked={this.props.websites.visibleSections.producthunt}
                 onChange={e => this.handleChange(e)}
               />
             <label htmlFor='product hunt'>product hunt</label>
+            </li>
+            <li>
+              <input 
+                type="checkbox"
+                id='hacker news'
+                value='hacker news'
+                name='hacker news'
+                checked={this.props.websites.visibleSections.hackernews}
+                onChange={e => this.handleChange(e)}
+              />
+            <label htmlFor='hacker news'>hacker news</label>
             </li>
           </ul> 
           <button onClick={e=> this.handleCloseModal(e)}>Close Modal</button>
