@@ -10,8 +10,7 @@ class SettingsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isActive: false,
-      checkboxState: true
+      isActive: false
     };
   }
 
@@ -55,7 +54,7 @@ class SettingsContainer extends React.Component {
               <input 
                 type="checkbox"
                 id='product hunt'
-                value='product hunt'
+                value='producthunt'
                 name='product hunt'
                 checked={this.props.websites.visibleSections.producthunt}
                 onChange={e => this.handleChange(e)}
@@ -66,7 +65,7 @@ class SettingsContainer extends React.Component {
               <input 
                 type="checkbox"
                 id='hacker news'
-                value='hacker news'
+                value='hackernews'
                 name='hacker news'
                 checked={this.props.websites.visibleSections.hackernews}
                 onChange={e => this.handleChange(e)}
