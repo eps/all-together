@@ -50,6 +50,15 @@ class ConnectedList extends React.Component {
       websites.splice(1, 0, 'product hunt');
     }
 
+    if (!visible['hackernews']) {
+      let index = websites.indexOf('hacker news');
+      if (index > -1) {
+        websites.splice(index, 1);
+      }
+    } else if (visible['hackernews'] && websites.indexOf('hacker news') == -1) {
+      websites.splice(2, 0, 'hacker news');
+    }
+
     return (
       <ul className={styles.leftPanel}>
         <li className={this.state.isActive === 'home' ? `${styles.active}` : `${styles.website}`} 
